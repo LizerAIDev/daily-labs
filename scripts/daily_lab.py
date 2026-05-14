@@ -9,6 +9,8 @@ import os
 import subprocess
 import urllib.request
 import urllib.error
+import re
+import unicodedata
 from datetime import datetime
 from pathlib import Path
 
@@ -20,14 +22,14 @@ def fetch_hn_stories(limit=15):
     """获取 Hacker News 热门技术故事"""
     try:
         url = "https://hacker-news.firebaseio.com/v0/topstories.json"
-        with urllib.request.urlopen(url, timeout=10) as resp:
+        with urllib.request.urlopen(url, timeout=5) as resp:
             story_ids = json.loads(resp.read())[:limit]
         
         stories = []
-        for sid in story_ids[:10]:
+        for sid in story_ids[:5]:  # 只取前5个
             try:
                 story_url = f"https://hacker-news.firebaseio.com/v0/item/{sid}.json"
-                with urllib.request.urlopen(story_url, timeout=5) as resp:
+                with urllib.request.urlopen(story_url, timeout=3) as resp:
                     stories.append(json.loads(resp.read()))
             except:
                 continue
@@ -79,9 +81,9 @@ def pick_topic(stories, trending):
     if not topics:
         # Fallback: 默认项目创意
         fallbacks = [
-            {"title": "AI 驱动的每日新闻摘要工具", "url": "", "score": 0},
-            {"title": "实时天气可视化仪表板", "url": "", "score": 0},
-            {"title": "Markdown 转交互式幻灯片", "url": "", "score": 0},
+            {"title": "AI 驱动的每日新闻摘要工具", "url": "", "score": 0, "source": "Lizer创意"},
+            {"title": "实时天气可视化仪表板", "url": "", "score": 0, "source": "Lizer创意"},
+            {"title": "Markdown 转交互式幻灯片", "url": "", "score": 0, "source": "Lizer创意"},
         ]
         topics.extend(fallbacks)
     
@@ -92,8 +94,12 @@ def pick_topic(stories, trending):
 def create_lab(topic):
     """创建每日 lab 项目"""
     date_str = datetime.now().strftime("%Y-%m-%d")
-    slug = topic["title"][:50].lower().replace(" ", "-").replace("/", "-")
-    lab_name = f"{date_str}-{slug}"
+    # 转换为 ASCII 兼容的 slug
+    title = topic["title"]
+    # 移除非 ASCII 字符，保留字母数字
+    slug = unicodedata.normalize('NFKD', title).encode('ascii', 'ignore').decode('ascii')
+    slug = re.sub(r'[^a-zA-Z0-9]+', '-', slug).strip('-').lower()[:40]
+    lab_name = f"{date_str}-{slug}" if slug else f"{date_str}-daily-lab"
     lab_path = LABS_DIR / lab_name
     
     # 创建项目结构

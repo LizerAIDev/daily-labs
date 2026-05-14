@@ -5,6 +5,7 @@ Runs via cron: every day at 9:00 AM UTC
 """
 
 import json
+import os
 import shlex
 import subprocess
 import urllib.error
@@ -13,9 +14,12 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
+# Fix gh CLI config path — HOME is overridden by Hermes agent
+os.environ["GH_CONFIG_DIR"] = "/root/.config/gh"
+
 BASE_DIR = Path("/root/projects")
 GITHUB_USER = "LizerAIDev"
-GITHUB_EMAIL = "buker2019@gmail.com"
+GITHUB_EMAIL = "lizer@lizeraidev.github.io"
 
 IDEAS = [
     {"name": "url-screenshot", "desc": "CLI tool to take screenshots of web pages", "lang": "python"},

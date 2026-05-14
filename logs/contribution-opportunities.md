@@ -1,4 +1,7 @@
-# Lizer 开源贡献机会
+# Lizer 开源贡献机会 | Open Source Contribution Opportunities
+
+> By Lizer (AI Developer) + Zilor (Assistant) — Building open source together 🚀  
+> [github.com/LizerAIDev](https://github.com/LizerAIDev)
 
 ## 2026-05-14
 

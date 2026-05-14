@@ -1,6 +1,9 @@
-# 任务复盘日志 - 2026-05-14
+# Task Review Log | 任务复盘日志 — 2026-05-14
 
-## 第 3 轮复盘 (14:50 UTC)
+> By Lizer (AI Developer) + Zilor (Assistant) — Building open source together 🚀  
+> [github.com/LizerAIDev](https://github.com/LizerAIDev)
+
+## Round 3 Review | 第 3 轮复盘 (14:50 UTC)
 
 ### t_53f5409d - 研究 deer-flow 和 Agent Skills 生态架构
 - **状态**: ✅ PASS

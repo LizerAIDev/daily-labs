@@ -6,13 +6,11 @@ Runs via cron: every day at 9:00 AM UTC
 
 import json
 import os
-import shlex
 import subprocess
 import urllib.error
 import urllib.request
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
 
 # Fix gh CLI config path — HOME is overridden by Hermes agent
 os.environ["GH_CONFIG_DIR"] = "/root/.config/gh"

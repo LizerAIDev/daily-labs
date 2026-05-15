@@ -5,13 +5,13 @@
 
 ---
 
-## Active PRs | 活跃 PR (最后更新: 2026-05-14)
+## Active PRs | 活跃 PR (最后更新: 2026-05-15)
 
 | PR | Repo | Title | State | CI | Notes / 备注 |
 |----|------|-------|-------|----|-------------|
-| #613 | redis/redis-vl-python | perf: replace DELETE with UNLINK in EmbeddingsCache | open | ✅ pass | mergeable=true, blocked, waiting for maintainer review |
-| #615 | redis/redis-vl-python | perf: use UNLINK instead of DEL in SearchIndex.drop_keys | open | ✅ pass | mergeable=true, blocked, closes #600 |
-| #25745 | NousResearch/hermes-agent | feat: add --sort to kanban list | open | ⚠️ unstable | mergeable=true, 0 comments |
+| #613 | redis/redis-vl-python | perf: replace DELETE with UNLINK in EmbeddingsCache | open | ✅ pass | mergeable=true, mergeStateStatus=BLOCKED, waiting for maintainer review |
+| #615 | redis/redis-vl-python | perf: use UNLINK instead of DEL in SearchIndex.drop_keys | open | ✅ pass | mergeable=true, mergeStateStatus=BLOCKED, closes #600 |
+| #25745 | NousResearch/hermes-agent | feat(kanban): add --sort to kanban list | open | — | mergeable=unknown, 0 comments, awaiting CI |
 
 ## Closed PRs | 已关闭 PR
 

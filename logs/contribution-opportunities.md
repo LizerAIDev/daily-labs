@@ -55,7 +55,8 @@
 | #600 | redis/redis-vl-python | ✅ Fixed via PR #615 |
 | #5566 | microsoft/autogen | ❌ PR #7694 submitted but closed (not merged) |
 | #34278 | langgenius/dify | ⏳ Still open but not yet attempted |
+| #25677 | NousResearch/hermes-agent | ❌ Closed as duplicate (self-closed by Lizer) |
 
 ---
 
-*Updated: 2026-05-15 | Next refresh: cron-driven by oss-recon at 19:30 UTC daily*
+*Updated: 2026-05-17 | Next refresh: cron-driven by oss-recon at 19:30 UTC daily*
